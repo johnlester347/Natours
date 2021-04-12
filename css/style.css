@@ -6,3 +6,188 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/*** COMMENTS ***/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom,rgba(126, 213, 111, 0.800), rgba(40, 180, 133, 0.800)), url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    /* background-attachment: fixed; */
+    position: relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*** This will going to clip all 4 sides of x and y ***/
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*** This will going to center the text-box form its parent ***/
+
+    text-align: center; /*** This will going to center all of the text and buttons inside this text box ***/
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+
+    backface-visibility: hidden; /*** This will going to remove the unknown error in animation, text is moving up a little bit when animating ***/
+    margin-bottom: 60px;
+}
+
+.heading-primary-main {
+    display: block;
+    font-weight: 400;
+    font-size: 60px;
+    letter-spacing: 35px;
+
+    animation-name: moveInLeft; /*** This is from keyframes ***/
+    animation-duration: 1s; /*** The animation will going to work after 1 secods ***/
+    animation-timing-function: ease-out; 
+
+
+    /* 
+    animation-delay: 3s; || eto naman kung gusto mo i delay yung animation
+    animation-iteration-count: 3; || mauulit ng 3 times yung animation pag ginamit mo itos 
+    animation-timing-function: ease-out; || the animation will start faster and then overtime it becomes slower
+    animation-timing-function: ease-in; || the animation will start slower and then overtime it becomes faster
+    
+    animation: moveInRight 1s ease-out || this is the short hand version of animation from the top
+    */ 
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+
+    animation: moveInRight 1s ease-out; /*** This is a shorthand version of animation use only ANIMATION name when calling ***/
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px); 
+    }
+
+    80% {
+        transform: translateX(20px); 
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); 
+    } 
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px); 
+    }
+
+    80% {
+        transform: translateX(-20px); 
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); 
+    } 
+}
+
+.btn:link,  
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 100px;
+    display: inline-block; /* We add this inline blocks because buttons is an inline elements */
+    transition: all .2s; /* All the transition will start animating after .2s */
+
+    position: relative; /* This is from btn::after */
+}
+
+.btn:hover { /*** This animation will going to work after you hover the button ***/
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2); /* X = 0px || Y = 10px || shadow 20px || and color black */
+}
+
+.btn:active { /*** This animation will going to work after you click the button ***/
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2); /* X = 0px || Y = 5px || shadow 10px || and color black */
+}
+
+.btn-white:link,
+.btn-white:visited {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute; /* This is connected to .btn:link */
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after { /*** This will going to apply to btn::after after you hover it ***/
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); 
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); 
+    } 
+}
+
+.btn-animated {
+    animation: moveInBottom 1s ease-out .75s;  /*** @keyframes name || Animation duration || Animation animation-timing-function || Animation delay ***/
+    animation-fill-mode: backwards; /*** This opactity 0 will now be applied before the animation starts ***/
+}
