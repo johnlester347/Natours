@@ -1,0 +1,21 @@
+
+*,
+*::before, /** We need to include this pseudo elements para gumana sya the way we expected it **/
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+
+html {
+    // This defines what 1 rem is
+    font-size: 62.5%; 
+    
+    /** 10px/16px = 0.625 thats mean 62.5% dahil yung 100% is 16px default font size ng browser eh ang need lang natin is 10px so thats why I divided 10/16 **/ 
+    /** .625 multiply by 16 is equals to 10 **/
+}
+
+body {
+    box-sizing: border-box;
+}
