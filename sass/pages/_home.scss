@@ -3,3 +3,16 @@
     padding: 25rem 0;
     margin-top: -25vh; // 75vh - 95vh this vh is located in header
 }
+
+.section-features {
+    padding: 20rem 0;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.800), rgba($color-primary-dark, 0.800)), url(../img/nat-4.jpg);
+    background-size: cover;
+    transform: skewY(-7deg);
+    margin-top: -10rem;
+
+    // It will select all the child inside the section features but only the direct child inside the section like rows
+    & > * {
+        transform: skewY(7deg);
+    }
+}
