@@ -29,7 +29,8 @@
            z-index: 20;
            transform: scale(1.05) translateY(-.5rem);
            box-shadow: 0rem 2.5rem 4rem rgba($color-black, .5);
-           outline: 1.5rem solid $color-primary;
+           // This is like a border set
+           outline: 1.5rem solid $color-primary; 
         }
    }
 
