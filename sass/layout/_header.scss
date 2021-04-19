@@ -5,6 +5,7 @@
     background-position: top;
     /* background-attachment: fixed; */
     position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     /*** This will going to clip all 4 sides of x and y ***/
     &__logo-box {
