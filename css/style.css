@@ -192,7 +192,9 @@ body {
     width: 100%;
     object-fit: fill; }
 
-.btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited {
+  color: #fff;
+  background-color: #55c57a;
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -202,7 +204,9 @@ body {
   transition: all .2s;
   /* All the transform will start animating after .2s */
   position: relative;
-  /* This is from btn::after */ }
+  /* This is from btn::after */
+  border: none;
+  cursor: pointer; }
 
 .btn:hover {
   /*** This animation will going to work after you hover the button ***/
@@ -214,7 +218,8 @@ body {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0; }
 
-.btn:active {
+.btn:active, .btn:focus {
+  outline: none;
   /*** This animation will going to work after you click the button ***/
   transform: translateY(-0.1rem);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
@@ -450,14 +455,41 @@ body {
 .form__radio-group {
   width: 49%;
   float: left; }
-  .form__radio-group::after {
-    content: "";
-    clear: both;
-    display: table; }
+
+.form__radio-input {
+  display: none; }
 
 .form__radio-label {
   font-size: 1.6rem;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative;
+  padding-left: 4.5rem; }
+
+.form__radio-button {
+  height: 3rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -.4rem; }
+  .form__radio-button::after {
+    content: "";
+    display: block;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #55c57a;
+    opacity: 0;
+    transition: opacity .2s; }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1; }
 
 .story {
   width: 75%;
