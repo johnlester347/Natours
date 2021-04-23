@@ -1,0 +1,23 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Landing for Natours",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnlester347/Natours.git"
+  },
+  "author": "John Lester Pamplona",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnlester347/Natours/issues"
+  },
+  "homepage": "https://github.com/johnlester347/Natours#readme"
+}
