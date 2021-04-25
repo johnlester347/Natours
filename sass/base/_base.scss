@@ -14,8 +14,29 @@ html {
     
     /** 10px/16px = 0.625 thats mean 62.5% dahil yung 100% is 16px default font size ng browser eh ang need lang natin is 10px so thats why I divided 10/16 **/ 
     /** .625 multiply by 16 is equals to 10 **/
+
+    // @include respond(phone) {
+    //     font-size: 50%;
+    // } 
+    
+    @include respond(tab-land) {       // width < 1200px
+        font-size: 56.25%;             // 1rem = 9px, 9/16 = 56.25%
+    }
+
+    @include respond(tab-port) {       // width < 900px 
+        font-size: 50%;                // 1rem = 8px, 8/16 = 50%
+    }
+
+    @include respond(big-desktop) {    // width > 1800px 
+        font-size: 75%;                // 1rem = 12px, 12/16 =  75%
+    }
 }
 
 body {
     box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
 }
