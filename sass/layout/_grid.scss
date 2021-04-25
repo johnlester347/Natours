@@ -5,9 +5,18 @@
     // .row::after
     @include clearfix; 
 
+    @include respond(tab-port) {
+        max-width: 50rem;
+        padding: 0 3rem;
+    }
+
     // We select everything except the last child it mean use margin to all except the last child
     &:not(:last-child) {  
         margin-bottom: $gutter-vertical;
+
+        @include respond(tab-port) {
+            margin-bottom: 6rem; 
+        }
     }
 
     // I seselect nya lahat ng class na may laman na nag uumpisa sa col-
@@ -16,6 +25,15 @@
 
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
+
+            @include respond(tab-port) {
+                margin-right: 0; 
+                margin-bottom: 6rem;
+            }
+        }
+        
+        @include respond(tab-port) {
+            width: 100% !important; 
         }
     }
 

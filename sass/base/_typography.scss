@@ -5,7 +5,7 @@ body {
     font-size: $default-font-size;
     line-height: 1.7;
     color: $color-grey-dark;
-    padding: 3rem;
+
 }
 
 .heading-primary {
@@ -33,6 +33,11 @@ body {
         
         animation: moveInRight 1s ease-out || this is the short hand version of animation from the top
         */
+
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-size: 5rem;
+        }
     }
 
     &--sub {
@@ -42,6 +47,10 @@ body {
         letter-spacing: 1.75rem;
         animation: moveInRight 1s ease-out;
         /*** This is a shorthand version of animation use only ANIMATION name when calling ***/
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
     }
 }
 
@@ -55,6 +64,15 @@ body {
     color: transparent; // we use this to set the text to transparent kasi nasa behind ng text yung bg image
     letter-spacing: .2rem;
     transition: all .2s;
+
+    @include respond(tab-port) {
+        margin-top: 5rem;
+        font-size: 3rem;
+    }
+
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
 
     &:hover {
         transform: skewY(2deg) skewX(15deg) scale(1.1);
