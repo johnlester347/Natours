@@ -24,11 +24,21 @@
         opacity: 0;
         transform: translate(-50%, -50%) scale(.5);
         transition: all .3s;
+
+        @include respond(phone) {
+            width: 85%;
+        }
     }
 
     &__left {
         width: 33.333333%;
         display: table-cell;
+
+        @include respond(tab-land) {
+            width: 100%;
+            display: block;
+            overflow: hidden;
+        }
     }
 
     &__right {
@@ -36,11 +46,29 @@
         display: table-cell;
         vertical-align: middle;
         padding: 2rem 3rem;
+
+        @include respond(tab-land) {
+            width: 100%;
+            padding: 2rem 7rem;
+            display: block;
+        }
+
+        @include respond(phone) {
+            width: 100%;
+            padding: 2rem 4rem;
+            display: block;
+        }
     }
 
     &__img {
         display: block;
         width: 100%;
+
+        @include respond(tab-land) {
+            display: inline-block;
+            width: 49%;
+            transform: scale(1.07);
+        }
     }
 
     &__text {
@@ -50,6 +78,12 @@
         column-count: 2;
         column-gap: 4rem;
         column-rule: 1px solid $color-grey-light-2;
+
+        @include respond(phone) {
+        column-count: auto !important;
+        column-gap: 0rem !important;
+        column-rule: none !important;
+        }
     }
 
     // OPEN STATES
